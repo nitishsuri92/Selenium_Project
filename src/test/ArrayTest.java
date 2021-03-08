@@ -4,22 +4,21 @@ public class ArrayTest {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+
 		String tool = "Selenium";
 		System.out.println(tool);
 		
-		String[] tools = {"Selenium", "QTP", "POSTMAN", "Jira", "Testlink"};
-		System.out.println(tools[0]);
-		
-		for(int i = 0; i< tools.length; i++) {
-			System.out.println("Loop: "+tools[i]);
-		}
-		
-		int[] nums = new int[] {1,2,3,4,5,6};
-		System.out.println(nums);
-		System.out.println(nums[2]);
-		
-		Object[] general = {4, "Selenium", 'n'};
-		System.out.println(general[2]);
+		String[] tools = {"selenium","qtp","postman","jira","testlink"};
+	System.out.println(tools[0]);
+	System.out.println(tools[1]);
+	System.out.println(tools[2]);
+	System.out.println(tools[3]);
+	System.out.println(tools[4]);
+	
+	
+	Object[] general = {4,"selenium",'n'};
+	System.out.println(general[0]);
+	System.out.println(general[1]);
+	System.out.println(general[2]);
 	}
-
 }

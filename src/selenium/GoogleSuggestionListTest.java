@@ -1,37 +1,38 @@
 package selenium;
 
-import java.util.List;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import java.util.List;
+
 
 public class GoogleSuggestionListTest {
 
 	public static void main(String[] args) throws InterruptedException {
 		// TODO Auto-generated method stub
-		System.setProperty("webdriver.gecko.driver", "/Users/savanpatel/Documents/Testing Class 2021/Projects/SeleniumJars/geckodriver");
+
+		System.setProperty("webdriver.gecko.driver", "C:\\SeleniumJars\\geckodriver.exe");
 		
 		FirefoxDriver driver = new FirefoxDriver();
+		
 		driver.get("https://www.google.com/");
 		
-		// Some browsers don't support direct input for search box, so this step is to avoid script from failing
-		driver.findElement(By.xpath("//input[@class='gLFyf gsfi']")).click();
-		
-		driver.findElement(By.xpath("//input[@class='gLFyf gsfi']")).sendKeys("Canada");
+		driver.findElement(By.name("q")).click();
+		driver.findElement(By.name("q")).sendKeys("Canada");
 		Thread.sleep(2000);
 		
-		List<WebElement> suggestionList = driver.findElements(By.xpath("//ul[@role='listbox']/li"));
-		System.out.println(suggestionList.size());
+		//List<WebElement> allLists = driver.findElements(By.xpath(""));
 		
-		//Following is for normal foreach loop
-		System.out.println("Following is for normal foreach loop");
-		for(WebElement temp : suggestionList) {
-			System.out.println(temp.getText());
-		}
+		List<WebElement> allOptions = driver.findElements(By.xpath("//ul[@role='listbox']/li"));
 		
-		//Following forEach loop is used with Lambda expression
-		System.out.println("Following forEach loop is used with Lambda expression");
-		suggestionList.forEach((temp) -> { System.out.println(temp.getText()); });
+		
+		System.out.println(allOptions.size());
+		
+//		for(int i = 0; i<allOptions.size(); i++)
+//			System.out.println(allOptions.get(i).getText());
+		
+		for(WebElement a:allOptions)
+			System.out.println(a.getText());
 	}
+
 }

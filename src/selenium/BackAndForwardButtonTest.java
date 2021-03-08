@@ -7,10 +7,12 @@ public class BackAndForwardButtonTest {
 
 	public static void main(String[] args) throws InterruptedException {
 		// TODO Auto-generated method stub
-		System.setProperty("webdriver.gecko.driver", "/Users/savanpatel/Documents/Testing Class 2021/Projects/SeleniumJars/geckodriver" );
-		FirefoxDriver driver = new FirefoxDriver();
-		driver.get("https://www.google.com");
 		
+		System.setProperty("webdriver.gecko.driver", "C:\\SeleniumJars\\geckodriver.exe");
+		
+		FirefoxDriver driver = new FirefoxDriver();
+		
+		driver.get("https://www.google.com/");
 		
 		driver.findElement(By.linkText("About")).click();
 		Thread.sleep(2000);
@@ -18,11 +20,12 @@ public class BackAndForwardButtonTest {
 		
 		driver.navigate().back();
 		Thread.sleep(2000);
-		System.out.println(driver.getTitle());
+        System.out.println(driver.getTitle());
+        
+        driver.navigate().forward();
+        Thread.sleep(2000);
+        System.out.println(driver.getTitle());
 		
-		driver.navigate().forward();
-		Thread.sleep(2000);
-		System.out.println(driver.getTitle());
 
 	}
 

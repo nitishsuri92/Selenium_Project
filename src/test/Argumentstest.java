@@ -1,26 +1,31 @@
 package test;
 
-public class Argumentstest {
+public class ArgumentsTest {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		
-		int a = sum();
-		System.out.println(a);
-		
-		int b = sum(10,20);
-		System.out.println(b);
-	}
+System.out.println(sum());
+int e = sum(5,5);
+System.out.println(e);
+int g = sum(5,5,5);
+System.out.println(g);
 
-	public static int sum() {
-		int p = 5+4;
+	}
+	
+	public static int sum()
+	{
+		int p = 4+5;
 		return p;
 	}
-	
-	public static int sum(int s, int y) {
-		int q = s + y;
-		return q;
+	public static int sum(int x, int y)
+	{
+		int w = x+y;
+		return w;
 	}
-	
-	
+	public static int sum(int a , int b , int c)
+	{
+		int d = a+b+c;
+		return d;
+	}
+
 }

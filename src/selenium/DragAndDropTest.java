@@ -1,6 +1,5 @@
 package selenium;
 
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -12,33 +11,38 @@ public class DragAndDropTest {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		System.setProperty("webdriver.gecko.driver", "/Users/savanpatel/Documents/Testing Class 2021/Projects/SeleniumJars/geckodriver");
+
+		System.setProperty("webdriver.gecko.driver", "C:\\SeleniumJars\\geckodriver.exe");
+		
 		FirefoxDriver driver = new FirefoxDriver();
+		
 		driver.get("https://jqueryui.com/droppable/");
+		
 		WebDriverWait wait = new WebDriverWait(driver, 20);
 		
 		driver.switchTo().frame(0);
 		
-		WebElement draggable = driver.findElement(By.xpath("//div[@id='draggable']/p"));
-		System.out.println(draggable.getText());
-		
-		WebElement droppable  = driver.findElement(By.xpath("//div[@id='droppable']/p"));
+		WebElement draggable = driver.findElement(By.id("draggable"));
+		WebElement droppable = driver.findElement(By.id("droppable"));
 		System.out.println(droppable.getText());
 		
-		System.out.println("Before Drag"+draggable.getLocation());
 		
 		Actions builder = new Actions(driver);
 		builder.dragAndDrop(draggable, droppable).build().perform();
-		
+         
 		wait.until(ExpectedConditions.textToBePresentInElement(droppable, "Dropped!"));
 		
-		System.out.println("After Drag"+draggable.getLocation());
+		System.out.println(droppable.getText());
 		
-		if (droppable.getText().equals("Dropped!")) {
-			System.out.println("Pass");
-		} else {
-			System.out.println("Fail");
+		if(droppable.getText().equals("Dropped!"))
+		{
+			System.out.println("passed");
 		}
+		else
+		{
+			System.out.println("failed");
+		}
+		
 	}
 
-} 
+}

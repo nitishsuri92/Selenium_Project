@@ -6,31 +6,40 @@ public class ArrayListTest {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
-		// Classname objname = new Classname();
+//		ClassName objName = new ClassName();
 		
 		ArrayList<String> tools = new ArrayList<String>();
-		
-		tools.add("Selenium");
-		tools.add("Postmane");
-		tools.add("JIRA");
-		
-		System.out.println(tools);
-		System.out.println(tools.size());
-		System.out.println(tools.get(0));
-		 
-		tools.remove(1);
-		System.out.println(tools);
-		
-		for (int i=0; i< tools.size(); i++)
-		{
-			System.out.println("For -> "+tools.get(i));
-		}
-		
-		//for each
-		for(String s : tools) {
-			System.out.println("For Each -> "+s);
-		}
+	tools.add("selenium");
+	tools.add("jira");
+	tools.add("testrail");
+	tools.add("postman");
+	System.out.println(tools);
+	System.out.println("");
+	System.out.println(tools.size());
+	System.out.println("");
+	System.out.println(tools.get(0));
+	System.out.println(tools.get(1));
+	System.out.println(tools.get(2));
+	System.out.println(tools.get(3));
+	
+	tools.remove(1);
+	System.out.println(tools.get(1));
+	
+	//for
+	
+	System.out.println("");
+	for (int i = 0; i<tools.size(); i++)
+	{
+		System.out.println(tools.get(i));
 	}
-
+	
+	
+ //for each loop
+	
+	
+	for(String s: tools)
+	{
+		System.out.println(s);
+	}
+}
 }

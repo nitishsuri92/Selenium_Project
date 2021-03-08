@@ -1,25 +1,40 @@
 package selenium;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class PopUpTest {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		System.setProperty("webdriver.gecko.driver", "/Users/savanpatel/Documents/Testing Class 2021/Projects/SeleniumJars/geckodriver");
+
+		System.setProperty("webdriver.gecko.driver", "C:\\SeleniumJars\\geckodriver.exe");
+		
 		FirefoxDriver driver = new FirefoxDriver();
 		driver.get("https://www.flipkart.com/");
-		driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS); // It'll wait maximum 20 seconds
 		
-		System.out.println("Res: "+driver.findElements(By.className("_2MlkI1")).size());
+		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		
-		if ( driver.findElements(By.className("_2MlkI1")).size()>0) {
-			System.out.println("IF");
-			driver.findElement(By.xpath("//button[@class='_2KpZ6l _2doB4z']")).click();
+		List<WebElement> popUp = driver.findElements(By.xpath("//button[@class='_2KpZ6l _2doB4z']"));
+		System.out.println(popUp.size());
+		
+		if(popUp.size()>0)
+		{
+			popUp.get(0).click();
 		}
-		driver.findElement(By.className("_3704LK")).sendKeys("laptop");
+		
+		
+		driver.findElement(By.name("q")).sendKeys("laptop");
+		
+//		WebDriverWait wait = new WebDriverWait(driver, 20);
+//		
+//		wait.until(ExpectedConditions.alertIsPresent());
 	}
+
 }

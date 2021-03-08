@@ -7,19 +7,21 @@ public class AttributeTest {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		
-		System.setProperty("webdriver.gecko.driver", "/Users/savanpatel/Documents/Testing Class 2021/Projects/SeleniumJars/geckodriver" );
+
+		System.setProperty("webdriver.gecko.driver", "C:\\SeleniumJars\\geckodriver.exe");
 		
 		FirefoxDriver driver = new FirefoxDriver();
 		driver.get("https://www.ebay.ca/");
-
+		
 		String s = driver.findElement(By.id("gh-ac")).getAttribute("placeholder");
-		System.out.println(s);
-		
-		driver.findElement(By.id("gh-ac")).sendKeys("iPhone");
-		
-		String p = driver.findElement(By.id("gh-ac")).getAttribute("value");
-		System.out.println(p);
+	     System.out.println(s);
+	     
+	     driver.findElement(By.id("gh-ac")).sendKeys("iphone");
+	     
+	     String p = driver.findElement(By.id("gh-ac")).getAttribute("value");
+	     System.out.println(p);
+	     
+	     //driver.findElement(By.id("gh-btn")).click();
 	}
 
 }

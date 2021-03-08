@@ -1,5 +1,7 @@
 package selenium;
 
+
+
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -8,29 +10,43 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class RadioButtonTest {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		// TODO Auto-generated method stub
-		System.setProperty("webdriver.gecko.driver", "/Users/savanpatel/Documents/Testing Class 2021/Projects/SeleniumJars/geckodriver");
+
+		System.setProperty("webdriver.gecko.driver", "C:\\SeleniumJars\\geckodriver.exe");
+		
 		FirefoxDriver driver = new FirefoxDriver();
+		
 		driver.get("http://www.echoecho.com/htmlforms10.htm");
 		
 		
-		//getAttributeValue
-		
-		List<WebElement> list = driver.findElements(By.xpath("//input[@name='group1']"));
-		//OR
-//		List<WebElement> list2 = driver.findElements(By.name("group1"));
-		System.out.println("Size -> "+list.size());
-		
-		list.forEach( (n)-> System.out.println(n.getAttribute("value")+"--------"+n.isSelected()));
-
-		list.get(2).click();
-		
-		list.forEach( (n)-> {
-			if(n.isSelected()) {
-				System.out.println(n.getAttribute("value")+"--------"+n.isSelected());	
-			}
-		});
+		//driver.findElement(By.name("group1")).sendKeys("Cheese");
+		//driver.findElement(By.name("group1")).click();
+	
+	List<WebElement> allRadio = driver.findElements(By.name("group1"));
+	System.out.println(allRadio.size());
+	Thread.sleep(2000);
+	
+	for(WebElement a: allRadio)
+	{
+		if(a.isSelected())
+		{
+		System.out.println(a.getAttribute("value")+"---------------"+a.isSelected());
+	   }
 	}
-
+	System.out.println("----------------");
+	
+	allRadio.get(2).click();
+	
+	Thread.sleep(2000);
+	
+	for(WebElement a: allRadio)
+	{
+		if(a.isSelected())
+		{
+		System.out.println(a.getAttribute("value")+"---------------"+a.isSelected());
+	   }
+	}
+	
+}
 }

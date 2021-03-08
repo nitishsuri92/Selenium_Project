@@ -11,14 +11,17 @@ public class ScreenShotTest {
 
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
-		System.setProperty("webdriver.gecko.driver", "/Users/savanpatel/Documents/Testing Class 2021/Projects/SeleniumJars/geckodriver");
-		FirefoxDriver driver = new FirefoxDriver();
-		driver.get("https://www.ebay.ca/");
+
+System.setProperty("webdriver.gecko.driver", "C:\\SeleniumJars\\geckodriver.exe");
 		
-		//  /Users/savanpatel/Documents/Testing Class 2021/Projects/testing
-		File srcFile = driver.getScreenshotAs(OutputType.FILE); // THis is for FirefoxDriver, ChromeDriver or any class Driver
-		//File srcFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE)); // This line is for WebDriver
-		FileUtils.copyFile(srcFile, new File("/Users/savanpatel/Documents/Testing Class 2021/Projects/testing/screenshot.png"));
+		FirefoxDriver driver = new FirefoxDriver();
+		//WebDriver driver = new FirefoxDriver();
+		driver.get("https://www.adidas.ca/en");
+		
+		File scrFile = driver.getScreenshotAs(OutputType.FILE); //This is for firefox, chrome and other class driver
+		//File scrFile = ((TakesScreenshot)driver).getScreenshotAs(Output.FILE);// This line is for WebDriver
+		FileUtils.copyFile(scrFile, new File("C:/testing/screenshot.png"));
+		
 	}
 
 }
